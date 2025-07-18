@@ -1,24 +1,25 @@
-package com.example.chessDojo.db;
+package com.example.chessDojo.model.db;
 
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.UUID;
 
-@Entity
+@Document(collection = "profiledetails")
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProfileDetails {
+
     @Id
-    @GeneratedValue
-    private UUID id;
+    private String id = UUID.randomUUID().toString();
 
     private String username;
     private String profilePhotoUrl;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Ratings ratings;
-
-    // Getters and Setters
+    // Instead of @OneToOne, use manual referencing
+    private String ratingsId;
 }

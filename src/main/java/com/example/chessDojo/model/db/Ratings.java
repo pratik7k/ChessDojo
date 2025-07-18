@@ -1,18 +1,20 @@
-package com.example.chessDojo.db;
+package com.example.chessDojo.model.db;
 
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.UUID;
 
-@Entity
-@Getter
-@Setter
+@Document(collection = "ratings")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Ratings {
+
     @Id
-    @GeneratedValue
-    private UUID id;
+    private String id = UUID.randomUUID().toString();  // generate UUID as String
 
     private int bullet;
     private int blitz;
@@ -20,6 +22,6 @@ public class Ratings {
     private int classical;
     private int correspondence;
     private int puzzle;
-
-    // Getters and Setters
+    private int practiceRatting;
+    private int preformanceRatting;
 }

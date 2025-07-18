@@ -1,8 +1,10 @@
 package com.example.chessDojo.repo;
 
-import com.example.chessDojo.db.Ratings;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.chessDojo.model.db.Ratings;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
-public interface RatingsRepository extends JpaRepository<Ratings, UUID> {}
+@Repository
+public interface RatingsRepository extends MongoRepository<Ratings, String> {}

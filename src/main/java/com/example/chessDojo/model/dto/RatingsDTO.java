@@ -6,5 +6,6 @@ import lombok.Data;
 @Data
 @Builder
 public class RatingsDTO {
-    public int bullet, blitz, rapid, classical, correspondence, puzzle;
+    public int bullet, blitz, rapid, classical, correspondence, puzzle, practiceRatting,
+     preformanceRatting;
 }

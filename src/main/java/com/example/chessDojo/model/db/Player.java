@@ -1,12 +1,12 @@
-package com.example.chessDojo.db;
+package com.example.chessDojo.model.db;
 
-
-import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.UUID;
 
-
-@Entity
+@Document(collection = "players")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,22 +14,13 @@ import java.util.UUID;
 public class Player {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @Column(updatable = false, nullable = false)
-    private UUID id;
+    private String id = UUID.randomUUID().toString();  // Store UUID as String
 
-    @Column(unique = true, nullable = false)
     private String username;
-
-    @Column(unique = true, nullable = false)
     private String email;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private AuthDetails auth;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private ProfileDetails profile;
+    private String authId;     // Reference to AuthDetails._id
+    private String profileId;  // Reference to ProfileDetails._id
 
 
 }
-

@@ -8,7 +8,7 @@ import java.util.UUID;
 @Data
 @Builder
 public class PlayerDTO {
-    private UUID id;
+    public String id;
     private String username;
     private String email;
     public AuthDTO auth;

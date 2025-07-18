@@ -1,16 +1,17 @@
-package com.example.chessDojo.db;
+package com.example.chessDojo.model.db;
 
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Document
 @Getter
 @Setter
 public class Game {
