@@ -1,4 +1,4 @@
 package com.example.chessDojo.model.dto;
 
-public class CreatePlayerDTO {
+public class LoginRequest {
 }
